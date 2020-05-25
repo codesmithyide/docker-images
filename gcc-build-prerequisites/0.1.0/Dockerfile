@@ -1,7 +1,4 @@
 FROM diplodocusdb/gcc-diplodocusdb:0.1.0
 
-WORKDIR /CMake
-RUN git clone hhttps://github.com/CodeSmithyIDE/CMake.git
-RUN ./bootstrap && make && make install
-
-WORKDIR /
+RUN git clone https://github.com/CodeSmithyIDE/CMake.git
+RUN cd /CMake && ./bootstrap && make && make install
