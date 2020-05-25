@@ -1,1 +1,1 @@
-FROM ishikocpp/gcc-ishiko:1.0.0
+FROM diplodocusdb/gcc-diplodocusdb:0.1.0
