@@ -3,6 +3,7 @@ FROM ishikocpp/gcc-boost:10.1.0-1.73.0
 ENV PUGIXML=/CodeSmithyIDE/pugixml
 ENV LIBGIT2=/CodeSmithyIDE/libgit2
 ENV ISHIKO_CPP=/CodeSmithyIDE
+ENV DIPLODOCUSDB=/CodeSmithyIDE
 
 WORKDIR /CodeSmithyIDE
 
@@ -20,7 +21,17 @@ RUN cd Errors/Makefiles/GNUmakefile && make
 RUN git clone https://github.com/CodeSmithyIDE/Process.git
 RUN cd Process/Makefiles/GNUmakefile && make
 
+RUN git clone https://github.com/CodeSmithyIDE/TestFramework.git
+RUN cd TestFramework/Core/Makefiles/GNUmakefile && make
+
 RUN git clone https://github.com/CodeSmithyIDE/Collections.git
 RUN cd Collections/Makefiles/GNUmakefile && make
+
+RUN git clone https://github.com/CodeSmithyIDE/Core.git
+RUN cd Core/Makefiles/GNUmakefile && make
+
+RUN git clone https://github.com/CodeSmithyIDE/TreeDB.git
+RUN cd TreeDB/Core/Makefiles/GNUmakefile && make
+RUN cd TreeDB/XMLTreeDB/Makefiles/GNUmakefile && make
 
 WORKDIR /
