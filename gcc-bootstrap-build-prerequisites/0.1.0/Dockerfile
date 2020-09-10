@@ -1,9 +1,26 @@
 FROM ishikocpp/gcc-boost:10.1.0-1.73.0
 
-ENV LIBGIT2=/libgit2
+ENV PUGIXML=/CodeSmithyIDE/pugixml
+ENV LIBGIT2=/CodeSmithyIDE/libgit2
+ENV ISHIKO_CPP=/CodeSmithyIDE
+
+WORKDIR /CodeSmithyIDE
 
 RUN git clone https://github.com/CodeSmithyIDE/CMake.git
-RUN cd /CMake && ./bootstrap && make && make install
+RUN cd CMake && ./bootstrap && make && make install
+
+RUN git clone https://github.com/CodeSmithyIDE/pugixml.git
 
 RUN git clone https://github.com/CodeSmithyIDE/libgit2.git
-RUN cd libgit2 && mkdir build && cd build && cmake .. -DBUILD_SHARED_LIBS=OFF && cmake --build .
+RUN cd libgit2 && mkdir build && cd build && cmake .. -DBUILD_SHARED_LIBS=OFF && cmake --build . && cmake --install . --prefix /CodeSmithyIDE/libgit2
+
+RUN git clone https://github.com/CodeSmithyIDE/Errors.git
+RUN cd Errors/Makefiles/GNUmakefile && make
+
+RUN git clone https://github.com/CodeSmithyIDE/Process.git
+RUN cd Process/Makefiles/GNUmakefile && make
+
+RUN git clone https://github.com/CodeSmithyIDE/Collections.git
+RUN cd Collections/Makefiles/GNUmakefile && make
+
+WORKDIR /
