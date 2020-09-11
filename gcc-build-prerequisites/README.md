@@ -11,9 +11,9 @@ The images are available from [Docker Hub](https://hub.docker.com/r/codesmithy/g
 
 ```
 docker build .
-docker tag <id> codesmithy/gcc-build-prequisites:latest
+docker tag <id> codesmithy/gcc-build-prerequisites:latest
 docker tag <id> codesmithy/gcc-build-prerequisites:<version>
 docker login
-docker push codesmithy/gcc-build-prequisites:latest
-docker push codesmithy/gcc-build-prequisites:<version>
+docker push codesmithy/gcc-build-prerequisites:latest
+docker push codesmithy/gcc-build-prerequisites:<version>
 ```
