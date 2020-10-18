@@ -7,6 +7,13 @@ The images are available from [Docker Hub](https://hub.docker.com/u/codesmithy).
 
 ## Images
 
+- [gcc-bootstrap-build-prerequisites](https://github.com/CodeSmithyIDE/DockerImages/tree/master/gcc-bootstrap-build-prerequisites):
+  images containing the prerequisites to build the CodeSmithyIDE projects. Forks of most dependencies have been taken into the CodeSmithyIDE project.
+  This image uses these forks.
+- [gcc-build-prerequisites](https://github.com/CodeSmithyIDE/DockerImages/tree/master/gcc-build-prerequisites):
+  images containing the prerequisites to build the CodeSmithyIDE projects. It is based on the 
+  [diplodocusdb/gcc-diplodocusdb Docker image](https://hub.docker.com/repository/docker/diplodocusdb/gcc-diplodocusdb) with a few additions.
+
 ## License
 
 **The license below is the license for the configuration files in this repository.
