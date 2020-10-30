@@ -15,6 +15,8 @@ RUN git clone https://github.com/CodeSmithyIDE/pugixml.git
 RUN git clone https://github.com/CodeSmithyIDE/libgit2.git
 RUN cd libgit2 && mkdir build && cd build && cmake .. -DBUILD_SHARED_LIBS=OFF && cmake --build . && cmake --install . --prefix /CodeSmithyIDE/libgit2
 
+RUN git clone https://github.com/CodeSmithyIDE/Platform.git
+
 RUN git clone https://github.com/CodeSmithyIDE/Errors.git
 RUN cd Errors/Makefiles/GNUmakefile && make
 
