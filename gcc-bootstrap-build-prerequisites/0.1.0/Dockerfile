@@ -23,6 +23,9 @@ RUN cd Errors/Makefiles/GNUmakefile && make
 RUN git clone https://github.com/CodeSmithyIDE/Types.git
 RUN cd Types/Makefiles/GNUmakefile && make
 
+RUN git clone https://github.com/CodeSmithyIDE/Text.git
+RUN cd Text/Makefiles/GNUmakefile && make
+
 RUN git clone https://github.com/CodeSmithyIDE/Process.git
 RUN cd Process/Makefiles/GNUmakefile && make
 
