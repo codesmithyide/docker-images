@@ -1,9 +1,9 @@
 FROM ishiko/gcc-boost:11.1.0-1.76.0
 
 ENV LIBGIT2=/codesmithyide/libgit2
-ENV PUGIXML=/codesmithyide/ishiko/cpp/pugixml
+ENV ISHIKO_CPP_THIRD_PARTY_PUGIXML=/codesmithyide/ishiko/cpp/pugixml
 ENV ISHIKO_CPP=/codesmithyide/ishiko/cpp
-ENV DIPLODOCUSDB=/CodeSmithyIDE
+ENV DIPLODOCUSDB=/codesmithyide/diplodocusdb
 
 WORKDIR /codesmithyide/Kitware
 
@@ -46,20 +46,22 @@ RUN cd diff/build/gnumake && make
 RUN git clone https://github.com/codesmithyide/ishiko-cpp-tests.git tests
 RUN cd tests/build/gnumake && make
 
-RUN git clone https://github.com/CodeSmithyIDE/Terminal.git
-RUN cd Terminal/Makefiles/GNUmakefile && make
+RUN git clone https://github.com/codesmithyide/ishiko-cpp-terminal.git terminal
+RUN cd terminal/build/gnumake && make
 
-RUN git clone https://github.com/CodeSmithyIDE/Tasks.git
-RUN cd Tasks/Makefiles/GNUmakefile && make
+RUN git clone https://github.com/codesmithyide/ishiko-cpp-tasks.git tasks
+RUN cd tasks/build/gnumake && make
 
-RUN git clone https://github.com/CodeSmithyIDE/UUIDs.git
-RUN cd UUIDs/Makefiles/GNUmakefile && make
+RUN git clone https://github.com/codesmithyide/ishiko-cpp-uuids.git uuids
+RUN cd uuids/build/gnumake && make
 
-RUN git clone https://github.com/CodeSmithyIDE/Core.git
-RUN cd Core/Makefiles/GNUmakefile && make
+WORKDIR /codesmithyide/diplodocusdb
 
-RUN git clone https://github.com/CodeSmithyIDE/TreeDB.git
-RUN cd TreeDB/Core/Makefiles/GNUmakefile && make
-RUN cd TreeDB/XMLTreeDB/Makefiles/GNUmakefile && make
+RUN git clone https://github.com/codesmithyide/diplodocusdb-core.git core
+RUN cd core/build/gnumake && make
+
+RUN git clone https://github.com/codesmithyide/diplodocusdb-tree-db.git tree-db
+RUN cd tree-db/core/build/gnumake && make
+RUN cd tree-db/xml-tree-db/build/gnumake && make
 
 WORKDIR /
