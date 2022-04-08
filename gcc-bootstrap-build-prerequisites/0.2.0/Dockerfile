@@ -7,7 +7,7 @@ ENV DIPLODOCUSDB=/codesmithyide/diplodocusdb
 
 WORKDIR /codesmithyide/Kitware
 
-RUN git clone https://github.com/codesmithyide/Kitware-CMake.git CMake
+RUN git clone https://github.com/codesmithyide/Kitware_CMake.git CMake
 RUN cd CMake && ./bootstrap && make && make install
 
 WORKDIR /codesmithyide
@@ -17,50 +17,53 @@ RUN cd libgit2 && mkdir build && cd build && cmake .. -DBUILD_SHARED_LIBS=OFF &&
 
 WORKDIR /codesmithyide/ishiko/cpp
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-pugixml.git pugixml
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_pugixml.git pugixml
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-platform.git platform
-RUN cd platform/build/gnumake && make
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_base-platform.git base-platform
+RUN cd base-platform/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-errors.git errors
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_errors.git errors
 RUN cd errors/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-types.git types
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_types.git types
 RUN cd types/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-collections.git collections
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_collections.git collections
 RUN cd collections/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-text.git text
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_text.git text
 RUN cd text/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-process.git process
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_time.git time
+RUN cd time/build/gnumake && make
+
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_process.git process
 RUN cd process/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-filesystem.git filesystem
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_filesystem.git filesystem
 RUN cd filesystem/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-diff.git diff
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_diff.git diff
 RUN cd diff/build/gnumake && make
 
 RUN git clone https://github.com/codesmithyide/ishiko-cpp_test-framework.git test-framework
 RUN cd test-framework/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-terminal.git terminal
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_terminal.git terminal
 RUN cd terminal/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-tasks.git tasks
-RUN cd tasks/build/gnumake && make
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_user-tasks.git user-tasks
+RUN cd user-tasks/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/ishiko-cpp-uuids.git uuids
+RUN git clone https://github.com/codesmithyide/ishiko-cpp_uuids.git uuids
 RUN cd uuids/build/gnumake && make
 
 WORKDIR /codesmithyide/diplodocusdb
 
-RUN git clone https://github.com/codesmithyide/diplodocusdb-core.git core
+RUN git clone https://github.com/codesmithyide/diplodocusdb_core.git core
 RUN cd core/build/gnumake && make
 
-RUN git clone https://github.com/codesmithyide/diplodocusdb-tree-db.git tree-db
+RUN git clone https://github.com/codesmithyide/diplodocusdb_tree-db.git tree-db
 RUN cd tree-db/core/build/gnumake && make
 RUN cd tree-db/xml-tree-db/build/gnumake && make
 
