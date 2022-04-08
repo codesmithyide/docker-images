@@ -47,6 +47,7 @@ RUN git clone https://github.com/codesmithyide/ishiko-cpp_diff.git diff
 RUN cd diff/build/gnumake && make
 
 RUN git clone https://github.com/codesmithyide/ishiko-cpp_test-framework.git test-framework
+RUN cd test-framework/core/build/gnumake && make
 RUN cd test-framework/build/gnumake && make
 
 RUN git clone https://github.com/codesmithyide/ishiko-cpp_terminal.git terminal
