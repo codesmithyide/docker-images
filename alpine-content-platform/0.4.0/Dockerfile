@@ -26,4 +26,4 @@ COPY --from=build /codesmithyide/content-platform-themes /codesmithyide/content-
 
 ENV CODESMITHYIDE=/codesmithyide 
 
-ENTRYPOINT /usr/local/bin/CodeSmithyContentPlatformWebServer
+ENTRYPOINT ["/usr/local/bin/CodeSmithyContentPlatformWebServer"]
