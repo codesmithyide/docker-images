@@ -10,7 +10,7 @@ The images are available from [Docker Hub](https://hub.docker.com/r/codesmithy/g
 # Upload Instructions
 
 ```
-docker build .
+docker build . --no-cache
 docker tag <id> codesmithy/gcc-build-prerequisites:latest
 docker tag <id> codesmithy/gcc-build-prerequisites:<version>
 docker login
