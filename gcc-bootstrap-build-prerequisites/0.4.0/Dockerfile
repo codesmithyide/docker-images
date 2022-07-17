@@ -23,7 +23,7 @@ WORKDIR /projects/codesmithyide/ishiko/cpp/fmtlib
 RUN git clone https://github.com/ishiko-third-party/fmtlib_fmt.git fmt
 RUN cd fmt && mkdir build && cd build && cmake .. && make && make install
 
-ENV LIBGIT2=/codesmithyide/libgit2/libgit2
+ENV LIBGIT2=/projects/codesmithyide/libgit2/libgit2
 ENV ISHIKO_CPP_THIRD_PARTY_PUGIXML=/codesmithyide/ishiko/cpp/pugixml
 ENV ISHIKO_CPP=/codesmithyide/ishiko/cpp
 ENV DIPLODOCUSDB=/codesmithyide/diplodocusdb
