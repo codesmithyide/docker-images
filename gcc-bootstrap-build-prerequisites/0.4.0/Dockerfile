@@ -15,8 +15,9 @@ RUN tar xjf boost_1_78_0.tar.bz2
 
 WORKDIR /projects/boost_1_78_0
 
-RUN ./bootstrap.sh
+RUN ./bootstrap.sh --prefix=/usr/local
 RUN ./b2 install
+RUN ldconfig
 
 WORKDIR /projects/codesmithyide/ishiko/cpp/fmtlib
 
