@@ -2,25 +2,16 @@ FROM nemuframework/alpine-nemu-cpp:0.12.0 as build
 
 ENV CODESMITHYIDE=/codesmithyide
 
-WORKDIR /codesmithyide/doxygen
+WORKDIR /codesmithyide
 
-COPY doxygen/include include
-COPY doxygen/core core
-RUN mkdir lib
-RUN cd core/build/gnumake && make
+RUN git clone https://github.com/codesmithyide/doxygen.git
+RUN cd doxygen/core/build/gnumake && make
 
-WORKDIR /codesmithyide/content-platform
+RUN git clone https://github.com/codesmithyide/content-platform.git
+RUN cd content-platform/core/build/gnumake && make
+RUN cd content-platform/web-server/build/gnumake && make
 
-COPY content-platform/include include
-COPY content-platform/core core
-COPY content-platform/web-server web-server
-RUN mkdir lib
-RUN cd core/build/gnumake && make
-RUN cd web-server/build/gnumake && make
-
-WORKDIR /codesmithyide/content-platform-themes
-
-COPY content-platform-themes .
+RUN git clone https://github.com/codesmithyide/content-platform-themes.git
 
 FROM alpine:3.15.4
 
